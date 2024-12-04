@@ -7,17 +7,16 @@ import kiwiapollo.tmcraft.item.misc.BlankDiscItems;
 import kiwiapollo.tmcraft.item.tmmove.TMMoveItem;
 import kiwiapollo.tmcraft.item.tmmove.TMMoveItems;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
-import net.minecraft.data.server.recipe.RecipeJsonProvider;
+import net.minecraft.data.server.recipe.RecipeExporter;
 import net.minecraft.data.server.recipe.ShapelessRecipeJsonBuilder;
 import net.minecraft.item.ItemConvertible;
 import net.minecraft.item.Items;
 import net.minecraft.recipe.book.RecipeCategory;
 import net.minecraft.registry.tag.ItemTags;
 
-import java.util.function.Consumer;
-
 public class GoldTMRecipeGenerator implements RecipeGenerator {
-    public void generate(Consumer<RecipeJsonProvider> exporter) {
+    @Override
+    public void generate(RecipeExporter exporter) {
         GoldTMRecipeJsonBuilder.create((TMMoveItem) TMMoveItems.TM_CRUNCH.getItem())
                 .input(CobblemonItems.DEEP_SEA_TOOTH)
                 .offerTo(exporter);
@@ -410,7 +409,7 @@ public class GoldTMRecipeGenerator implements RecipeGenerator {
                 .offerTo(exporter);
 
         GoldTMRecipeJsonBuilder.create((TMMoveItem) TMMoveItems.TM_DIVE.getItem())
-                .input(Items.SCUTE)
+                .input(Items.TURTLE_SCUTE)
                 .offerTo(exporter);
 
         GoldTMRecipeJsonBuilder.create((TMMoveItem) TMMoveItems.TM_REVENGE.getItem())
@@ -448,7 +447,7 @@ public class GoldTMRecipeGenerator implements RecipeGenerator {
                 .offerTo(exporter);
 
         GoldTMRecipeJsonBuilder.create((TMMoveItem) TMMoveItems.TM_ROUND.getItem())
-                .input(ItemTags.MUSIC_DISCS)
+                .input(ItemTags.CREEPER_DROP_MUSIC_DISCS)
                 .offerTo(exporter);
 
         GoldTMRecipeJsonBuilder.create((TMMoveItem) TMMoveItems.TM_SHOCKWAVE.getItem())

@@ -15,11 +15,10 @@ import com.cobblemon.mod.common.pokemon.Pokemon;
 import kiwiapollo.tmcraft.common.DamageCategoryTextColorFactory;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
-import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
-import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.tooltip.TooltipType;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
@@ -40,7 +39,7 @@ public abstract class MoveTeachingItem extends Item implements ElementalTypeItem
     private final ElementalType type;
 
     public MoveTeachingItem(String move, ElementalType type) {
-        super(new FabricItemSettings());
+        super(new Item.Settings());
 
         this.move = move;
         this.type = type;
@@ -61,7 +60,7 @@ public abstract class MoveTeachingItem extends Item implements ElementalTypeItem
 
     @Environment(EnvType.CLIENT)
     @Override
-    public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
+    public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> tooltip, TooltipType type) {
         if (getMoveTemplate().getDamageCategory() == DamageCategories.INSTANCE.getSTATUS()) {
             tooltip.add(getMoveTypeTooltipText());
             tooltip.add(getMoveDamageCategoryTooltipText());

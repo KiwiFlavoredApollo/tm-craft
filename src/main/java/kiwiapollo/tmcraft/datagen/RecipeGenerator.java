@@ -1,9 +1,7 @@
 package kiwiapollo.tmcraft.datagen;
 
-import net.minecraft.data.server.recipe.RecipeJsonProvider;
-
-import java.util.function.Consumer;
+import net.minecraft.data.server.recipe.RecipeExporter;
 
 public interface RecipeGenerator {
-    void generate(Consumer<RecipeJsonProvider> exporter);
+    void generate(RecipeExporter exporter);
 }

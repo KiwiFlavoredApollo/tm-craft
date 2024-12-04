@@ -7,17 +7,16 @@ import kiwiapollo.tmcraft.item.misc.BlankDiscItems;
 import kiwiapollo.tmcraft.item.tmmove.TMMoveItem;
 import kiwiapollo.tmcraft.item.tmmove.TMMoveItems;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
-import net.minecraft.data.server.recipe.RecipeJsonProvider;
+import net.minecraft.data.server.recipe.RecipeExporter;
 import net.minecraft.data.server.recipe.ShapelessRecipeJsonBuilder;
 import net.minecraft.item.ItemConvertible;
 import net.minecraft.item.Items;
 import net.minecraft.recipe.book.RecipeCategory;
 import net.minecraft.registry.tag.ItemTags;
 
-import java.util.function.Consumer;
-
 public class IronTMRecipeGenerator implements RecipeGenerator {
-    public void generate(Consumer<RecipeJsonProvider> exporter) {
+    @Override
+    public void generate(RecipeExporter exporter) {
         IronTMRecipeJsonBuilder.create((TMMoveItem) TMMoveItems.TM_FIRESPIN.getItem())
                 .input(Items.IRON_BARS)
                 .offerTo(exporter);
