@@ -63,8 +63,10 @@ dependencies {
 
 	// modImplementation "net.fabricmc.fabric-api:fabric-api-deprecated:${project.fabric_version}"
 
-	modCompileOnly("com.cobblemon:mod:${project.cobblemon_version}")
-	modRuntimeOnly("com.cobblemon:fabric:${project.cobblemon_version}")
+//	modCompileOnly("com.cobblemon:mod:${project.cobblemon_version}")
+//	modRuntimeOnly("com.cobblemon:fabric:${project.cobblemon_version}")
+
+	modImplementation("com.cobblemon:fabric:${project.cobblemon_version}")
 
 	modImplementation("net.fabricmc:fabric-language-kotlin:${project.fabric_kotlin_version}")
 	compileOnly("net.luckperms:api:${project.luckperms_version}")
