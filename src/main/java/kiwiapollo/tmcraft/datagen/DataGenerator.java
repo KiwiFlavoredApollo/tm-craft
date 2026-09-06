@@ -5,6 +5,7 @@ import kiwiapollo.tmcraft.item.misc.BlankBookItem;
 import kiwiapollo.tmcraft.item.misc.BlankDiscItem;
 import kiwiapollo.tmcraft.item.misc.BlankEggItem;
 import kiwiapollo.tmcraft.item.misc.BlankStarItem;
+import kiwiapollo.tmcraft.item.starmove.StarMoveItem;
 import kiwiapollo.tmcraft.item.tmmove.TMMoveItem;
 import kiwiapollo.tmcraft.item.tutormove.TutorMoveItem;
 import net.fabricmc.fabric.api.datagen.v1.DataGeneratorEntrypoint;
@@ -54,8 +55,8 @@ public class DataGenerator implements DataGeneratorEntrypoint {
     }
 
     private static class ItemTagProvider extends FabricTagProvider<Item> {
-        public ItemTagProvider(FabricDataOutput output, CompletableFuture<RegistryWrapper.WrapperLookup> registriesFuture) {
-            super(output, RegistryKeys.ITEM, registriesFuture);
+        public ItemTagProvider(FabricDataOutput output, CompletableFuture<RegistryWrapper.WrapperLookup> lookup) {
+            super(output, RegistryKeys.ITEM, lookup);
         }
 
         @Override
@@ -63,7 +64,7 @@ public class DataGenerator implements DataGeneratorEntrypoint {
             TMMoveItem.getAll().forEach(getOrCreateTagBuilder(ModTagRegistry.TM_MOVES)::add);
             EggMoveItem.getAll().forEach(getOrCreateTagBuilder(ModTagRegistry.EGG_MOVES)::add);
             TutorMoveItem.getAll().forEach(getOrCreateTagBuilder(ModTagRegistry.TUTOR_MOVES)::add);
-            TutorMoveItem.getAll().forEach(getOrCreateTagBuilder(ModTagRegistry.STAR_MOVES)::add);
+            StarMoveItem.getAll().forEach(getOrCreateTagBuilder(ModTagRegistry.STAR_MOVES)::add);
 
             BlankDiscItem.getAll().forEach(getOrCreateTagBuilder(ModTagRegistry.BLANK_DISCS)::add);
             BlankEggItem.getAll().forEach(getOrCreateTagBuilder(ModTagRegistry.BLANK_EGGS)::add);

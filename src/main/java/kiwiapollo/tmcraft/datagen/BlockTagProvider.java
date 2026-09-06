@@ -9,8 +9,8 @@ import net.minecraft.registry.tag.BlockTags;
 import java.util.concurrent.CompletableFuture;
 
 public class BlockTagProvider extends FabricTagProvider.BlockTagProvider {
-    public BlockTagProvider(FabricDataOutput output, CompletableFuture<RegistryWrapper.WrapperLookup> registriesFuture) {
-        super(output, registriesFuture);
+    public BlockTagProvider(FabricDataOutput output, CompletableFuture<RegistryWrapper.WrapperLookup> lookup) {
+        super(output, lookup);
     }
 
     @Override
